@@ -1,5 +1,5 @@
 let questionNumber = 1;
-let score = 0;
+let score = store.score;
 initStartScreen();
 
 function initStartScreen() {
@@ -23,7 +23,7 @@ function initStartScreen() {
 }
 
 // start quiz
-$("#start-button").click(function () {
+function renderStartQuiz() {
   $('#question-header').show();
   $('#question-screen').show();
   $('#start-header').hide();
@@ -37,10 +37,15 @@ $("#start-button").click(function () {
   $('#answerThreeLabel').text(store.questions[questionNumber - 1].options[2]);
   $('#answerFourLabel').text(store.questions[questionNumber - 1].options[3]);
   $('#answerFiveLabel').text(store.questions[questionNumber - 1].options[4]);
-});
+}
+function attachStartButtonClick() {
+  $("#start-button").click(function () {
+    renderStartQuiz()
+  });
+}
 
 // submit button
-$('#submit-button').click(function (e) {
+function submitButtonClicked(e) {
   e.preventDefault();
   $('#submit-button').hide();
   $('#next-button').show();
@@ -64,7 +69,6 @@ $('#submit-button').click(function (e) {
   }
 
   updateScoreNumText(score);
-  console.log(updateScoreNumText());
   // text shows up based on your selection. Text says You got it! or Wrong
 
   // if statement to determine if user is on the last question -> transition to end-screen
@@ -79,23 +83,27 @@ $('#submit-button').click(function (e) {
     $('#end-screen').show();
     $('#stats-questions-correct').text(score);
 
-    if( score <= 3 ){
-      $('#end-screen-img').attr("src","./styles/img/sad-mario.png")
+    if (score <= 3) {
+      $('#end-screen-img').attr("src", "./styles/img/sad-mario.png")
       $('#quizResult').text("Boo Hoo!");
       $('#quizResultSub').text("Maybe we'll keep the controller away from you...");
     }
     else {
-      $('#end-screen-img').attr("src","./styles/img/happy-pikachu.png")
+      $('#end-screen-img').attr("src", "./styles/img/happy-pikachu.png")
       $('#quizResult').text("You did it!");
       $('#quizResultSub').text("I guess you do know your video games after all");
     }
   }
-
-
-});
+}
+function attachSubmitButtonClick() {
+  $('#submit-button').click(function (e) {
+    submitButtonClicked(e);
+    $('input[name=answer]:checked').prop('checked', false);
+  });
+}
 
 // next button
-$('#next-button').click(function (e) {
+function nextButtonIsClicked(e) {
   e.preventDefault();
   $('#submit-button').show();
   $('#next-button').hide();
@@ -111,12 +119,20 @@ $('#next-button').click(function (e) {
   $('#answerThreeLabel').text(store.questions[questionNumber - 1].options[2]);
   $('#answerFourLabel').text(store.questions[questionNumber - 1].options[3]);
   $('#answerFiveLabel').text(store.questions[questionNumber - 1].options[4]);
-});
+}
 
+function attachNextButton() {
+  $('#next-button').click(function (e) {
+    nextButtonIsClicked(e);
+    $('input[name=answer]').attr('checked', false);
+  });
+}
 // restart quiz button
-$('#restart-button').click(function () {
-  initStartScreen();
-})
+function attachRestartButton() {
+  $('#restart-button').click(function () {
+    initStartScreen();
+  })
+}
 
 // changes text for question number
 function updateQuestionNumText(questionNumber) {
@@ -127,3 +143,12 @@ function updateQuestionNumText(questionNumber) {
 function updateScoreNumText(score) {
   $('#totalScore').text(score);
 }
+
+function handleQuiz() {
+  attachStartButtonClick();
+  attachSubmitButtonClick();
+  attachNextButton();
+  attachRestartButton();
+}
+
+$(handleQuiz);
