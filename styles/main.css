@@ -1,0 +1,171 @@
+@import "./components/vars.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 0 5rem;
+}
+
+body header {
+  padding: 2rem;
+  text-align: center;
+}
+
+body header h1 {
+  font-size: 2.5rem;
+  font-family: var(--main-font);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+body header p {
+  font-family: var(--main-font);
+}
+
+body .question-status {
+  font-family: var(--main-font);
+}
+
+body #end-screen .end-screen-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body #end-screen .end-screen-img .end-screen-stats {
+  padding: 1.5rem 1rem;
+  font-family: var(--main-font);
+}
+
+body #end-screen .end-screen-img,
+body #start-screen .start-screen-img {
+  min-height: 400px;
+  min-width: 400px;
+  background-color: lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body #end-screen .end-screen-img img,
+body #start-screen .start-screen-img img {
+  width: 350px;
+  padding: 2rem;
+}
+
+body section .end-screen-button,
+body section .start-screen-button {
+  background-color: lightgrey;
+  height: 4rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+body #question-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body #question-screen .question-container {
+  min-height: 400px;
+  min-width: 400px;
+  background-color: var(--main-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container button {
+  all: unset;
+  height: 100%;
+  background-color: var(--main-bg-secondary);
+  padding: 0 1.5rem;
+  font-family: var(--main-font);
+  cursor: pointer;
+}
+
+.button-container button:hover,
+.button-container button:active {
+  background-color: var(--main-bg-darker);
+  color: #fff;
+}
+
+body #question-screen .question-container p {
+  font-size: 1.25rem;
+  text-align: left;
+  font-family: var(--main-font);
+}
+
+body #question-screen .question-container p + form {
+  margin-top: 1.5rem;
+}
+body #question-screen .question-container form div + div {
+  margin-top: 0.75rem;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+form div {
+  background-color: var(--main-bg-secondary);
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+form div:hover,
+form div:active {
+  background-color: var(--main-bg-darker);
+  color: #fff;
+}
+
+form div label {
+  padding: 0.5rem 1rem;
+  font-family: var(--main-font);
+  height: 100%;
+  width: 100%;
+}
+
+form div,
+form div * {
+  cursor: pointer;
+}
+
+form div input {
+  padding: 0.5rem;
+}
+
+footer {
+  display: none;
+}
