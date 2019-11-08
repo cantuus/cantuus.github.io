@@ -1,0 +1,78 @@
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  body header {
+    padding: -1rem;
+    text-align: center;
+  }
+
+  .header-title {
+      display: flex;
+      justify-content: space-evenly;
+  }
+
+  .button-options {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+.bookmark-list-item, .item-container, .edit-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px
+  }
+
+/* .bookmark-form {
+  display: flex;
+  justify-content: flex-end;
+} */
+
+.item-container {
+    border: black solid 2px;
+    border-collapse: separate;
+    padding: 20px 20px;
+    margin: 10px;
+    border-radius: 6px;
+}
+
+
+.delete-bookmark {
+    width: 40px;
+    height: 40px;
+    -webkit-text-stroke-width: thin;
+}
+
+.visit-site-bookmark {
+    margin-top: 1rem;
+}
+
+#expanded {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#title-delete-button {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: black solid 2px;
+    padding: 10px;
+}
+
+.star-container, .item-container, .edit-button {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+.star-container {
+    padding-top: 9px;
+}
